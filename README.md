@@ -3,6 +3,9 @@
 
 Token-Usage is a Laravel package that provides advanced token management functionalities for Laravel applications. It offers features for tracking token usage, setting token limits based on different time periods, and integrating these checks easily into Laravel applications. This package is ideal for developers looking to efficiently manage and monitor token consumption in their Laravel projects.
 
+The main idea is to track and manage token usage for AI services. For example, if a SaaS platform charges $10 for 1000 tokens, this package can efficiently monitor and manage the token consumption. It is perfect to work with OpenAI, [ollama](https://packagist.org/packages/cloudstudio/ollama-laravel) for enhanced functionality, etc.
+
+
 ## Installation
 
 ```bash
