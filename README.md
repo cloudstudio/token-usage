@@ -123,6 +123,11 @@ $tokensThisYear = $project->yearlyTokens();
 
 // Show token usage sum
 $tokensUsedToday = $project->dailyTokens()->sum("tokens_used");
+
+// Show token usage per model
+
+$tokensPerModel = Project::getDailyTokens();
+
 ```
 
 For blade directives, middleware and form you can use 2 parameters.
