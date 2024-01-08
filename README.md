@@ -52,12 +52,21 @@ php artisan vendor:publish --tag="token-usage-migrations"
 
 These migrations will create tables in your database to store token usage data. The migrations are compatible with UUIDs. If your application doesn't use UUIDs, you can modify the migration files accordingly.
 
-## Database Setup
+## User Setup
 
-For the package to work correctly, your `users` table needs to have a `plan` field. You can add this field by creating a new migration:
+For the package to work correctly, your `users` table needs to have a `plan` field. You can add this field by creating a new migration or creating a new accesor in your `User` model. For example, to create a new migration, run the following command:
 
 ```bash
 php artisan make:migration add_plan_to_users_table
+```
+
+If you prefer using a model accesor, add the following method to your `User` model:
+
+```php
+public function getPlanAttribute()
+{
+    return 'basic';
+}
 ```
 
 In the migration file, add the `plan` field, like so:
@@ -115,8 +124,8 @@ $tokensUsedToday = $project->dailyTokens()->sum("tokens_used");
 
 For blade directives, middleware and form you can use 2 parameters.
 
-1º Parameter: The name of the model. (video, user)
-2º Parameter: The name of the plan. (daily, weekly, monthly, yearly)
+1º Parameter: The name of the model. (video, user).
+2º Parameter: The name of the plan. (daily, weekly, monthly, yearly).
 
 This information is stored in the config file.
 
@@ -167,7 +176,7 @@ pest
 
 ## Credits
 
-- [Your Name](https://github.com/cloudstudio)
+- [Toni Soriano](https://github.com/cloudstudio)
 
 ## License
 
