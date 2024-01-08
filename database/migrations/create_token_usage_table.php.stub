@@ -1,0 +1,20 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up()
+    {
+        Schema::create('token_usage', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->uuid('model_id');
+            $table->string('model_type');
+            $table->integer('tokens_used')->nullable();
+            $table->uuid('user_id');
+            $table->timestamps();
+        });
+    }
+
+};
